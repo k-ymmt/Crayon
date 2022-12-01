@@ -14,7 +14,7 @@ public struct Crayon {
         case color256
         case trueColor
 
-        public static func < (lhs: Crayon.SupportLevel, rhs: Crayon.SupportLevel) -> Bool {
+        public static func < (lhs: SupportLevel, rhs: SupportLevel) -> Bool {
             lhs.rawValue < rhs.rawValue
         }
     }

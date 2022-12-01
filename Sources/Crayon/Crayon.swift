@@ -19,16 +19,6 @@ public struct Crayon {
         }
     }
 
-    public enum Style: Int {
-        case `default`
-        case bold
-        case thin
-        case italic
-        case underline
-        case blink
-        case rapidBlink
-    }
-
     public static var supportLevel: SupportLevel = .trueColor
 
     public let style: Style?

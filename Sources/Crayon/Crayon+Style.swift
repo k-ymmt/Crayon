@@ -8,6 +8,16 @@
 import Foundation
 
 public extension Crayon {
+    enum Style: Int {
+        case `default`
+        case bold
+        case thin
+        case italic
+        case underline
+        case blink
+        case rapidBlink
+    }
+
     static func bold(_ message: String) -> Self {
         Crayon(message: message, style: .bold)
     }

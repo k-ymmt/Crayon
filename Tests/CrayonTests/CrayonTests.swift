@@ -25,4 +25,10 @@ final class CrayonTests: XCTestCase {
         XCTAssertEqual(Crayon.bold("foo").string, "foo")
         XCTAssertEqual(Crayon.backgroundBlue("foo").string, "foo")
     }
+
+    func testPlus() {
+        XCTAssertEqual(String(describing: Crayon.blue("foo") + "bar"), "\u{001B}[34mfoo\u{001B}[mbar")
+        XCTAssertEqual(String(describing: "foo" + Crayon.blue("bar")), "foo\u{001B}[34mbar\u{001B}[m")
+        XCTAssertEqual(String(describing: Crayon.blue("foo") + Crayon.blue("bar")), "\u{001B}[34mfoo\u{001B}[m\u{001B}[34mbar\u{001B}[m")
+    }
 }

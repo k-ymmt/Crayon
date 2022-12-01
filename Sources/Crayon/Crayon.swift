@@ -26,6 +26,23 @@ public struct Crayon {
     public let background: Color?
     public let message: String
 
+    public var string: String {
+        guard Self.supportLevel != .none else {
+            return message
+        }
+        let parameters = [
+            style.map { String($0.rawValue) },
+            foreground?.rawValue(isBackground: false),
+            background?.rawValue(isBackground: true)
+        ].compactMap { $0 }
+
+        guard !parameters.isEmpty else {
+            return message
+        }
+
+        return "\u{001B}[\(parameters.joined(separator: ";"))m\(message)\u{001B}[m"
+    }
+
     public init(
         message: String,
         style: Style? = nil,
@@ -55,20 +72,7 @@ public extension Crayon {
 
 extension Crayon: CustomStringConvertible {
     public var description: String {
-        guard Self.supportLevel != .none else {
-            return message
-        }
-        let parameters = [
-            style.map { String($0.rawValue) },
-            foreground?.rawValue(isBackground: false),
-            background?.rawValue(isBackground: true)
-        ].compactMap { $0 }
-
-        guard !parameters.isEmpty else {
-            return message
-        }
-
-        return "\u{001B}[\(parameters.joined(separator: ";"))m\(message)\u{001B}[m"
+        string
     }
 }
 

@@ -8,6 +8,17 @@
 import Foundation
 
 public struct Crayon {
+    public enum SupportLevel: Int, Comparable {
+        case none
+        case ansiColor
+        case color256
+        case trueColor
+
+        public static func < (lhs: Crayon.SupportLevel, rhs: Crayon.SupportLevel) -> Bool {
+            lhs.rawValue < rhs.rawValue
+        }
+    }
+
     public enum Style: Int {
         case `default`
         case bold
@@ -17,6 +28,8 @@ public struct Crayon {
         case blink
         case rapidBlink
     }
+
+    public static var supportLevel: SupportLevel = .trueColor
 
     public let style: Style?
     public let foreground: Color?
@@ -52,6 +65,9 @@ public extension Crayon {
 
 extension Crayon: CustomStringConvertible {
     public var description: String {
+        guard Self.supportLevel != .none else {
+            return message
+        }
         let parameters = [
             style.map { String($0.rawValue) },
             foreground?.rawValue(isBackground: false),

@@ -116,14 +116,16 @@ public extension Crayon {
 
         static var `default`: Color = .color(.default)
 
-        func rawValue(isBackground: Bool) -> String {
+        func rawValue(isBackground: Bool) -> String? {
             switch self {
-            case .color(let color):
+            case .color(let color) where Crayon.supportLevel >= .ansiColor:
                 return String(isBackground ? color.background : color.foreground)
-            case .color256(let color):
+            case .color256(let color) where Crayon.supportLevel >= .color256:
                 return "\(isBackground ? 48 : 38);5;\(color)"
-            case let .trueColor(red, green, blue):
+            case let .trueColor(red, green, blue) where Crayon.supportLevel >= .trueColor:
                 return "\(isBackground ? 48 : 38);2;\(red);\(green);\(blue)"
+            default:
+                return nil
             }
         }
     }

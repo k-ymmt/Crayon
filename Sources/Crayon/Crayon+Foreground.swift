@@ -76,6 +76,10 @@ public extension Crayon {
         Crayon(message: message, foreground: .color(.brightRed))
     }
 
+    static func foreground(_ message: String, color: UInt8) -> Self {
+        Crayon(message: message, foreground: .color256(color))
+    }
+
     static func foreground(_ message: String, color: String) -> Self {
         Crayon(message: message, foreground: Utils.makeColor(from: color))
     }

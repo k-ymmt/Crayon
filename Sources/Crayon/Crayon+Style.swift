@@ -32,6 +32,10 @@ public extension Crayon {
         Crayon(message: message, style: .rapidBlink)
     }
 
+    static func style(_ message: String, style: Crayon.Style) -> Self {
+        Crayon(message: message, style: style)
+    }
+
     func bold() -> Self {
         update(style: .bold)
     }
@@ -54,5 +58,9 @@ public extension Crayon {
 
     func rapidBlink() -> Self {
         update(style: .rapidBlink)
+    }
+
+    func style(_ style: Crayon.Style) -> Self {
+        update(style: style)
     }
 }

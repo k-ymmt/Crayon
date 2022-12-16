@@ -58,15 +58,15 @@ public struct Crayon {
 
 public extension Crayon {
     static func +(lhs: Crayon, rhs: String) -> Crayon {
-        Crayon(message: lhs.description + rhs)
+        Crayon(message: lhs.string + rhs)
     }
 
     static func +(lhs: String, rhs: Crayon) -> Crayon {
-        Crayon(message: lhs + rhs.description)
+        Crayon(message: lhs + rhs.string)
     }
 
     static func +(lhs: Crayon, rhs: Crayon) -> Crayon {
-        Crayon(message: lhs.description + rhs.description)
+        Crayon(message: lhs.string + rhs.string)
     }
 }
 

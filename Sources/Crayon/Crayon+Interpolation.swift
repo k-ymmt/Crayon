@@ -229,61 +229,61 @@ public extension String.StringInterpolation {
 }
 
 private func makeCrayonString(_ message: String, style: Crayon.Style? = nil, foreground: Crayon.ANSIColor? = nil, background: Crayon.ANSIColor? = nil) -> String {
-    Crayon(message: message, style: style, foreground: foreground.map { .color($0) }, background: background.map { .color($0) }).description
+    Crayon(message: message, style: style, foreground: foreground.map { .color($0) }, background: background.map { .color($0) }).string
 }
 
 private func makeCrayonString(_ message: String, style: Crayon.Style? = nil, foreground: UInt8, background: Crayon.ANSIColor? = nil) -> String {
-    Crayon(message: message, style: style, foreground: .color256(foreground), background: background.map { .color($0) }).description
+    Crayon(message: message, style: style, foreground: .color256(foreground), background: background.map { .color($0) }).string
 }
 
 private func makeCrayonString(_ message: String, style: Crayon.Style? = nil, foreground: Crayon.ANSIColor? = nil, background: UInt8) -> String {
-    Crayon(message: message, style: style, foreground: foreground.map { .color($0) }, background: .color256(background)).description
+    Crayon(message: message, style: style, foreground: foreground.map { .color($0) }, background: .color256(background)).string
 }
 
 private func makeCrayonString(_ message: String, style: Crayon.Style? = nil, foreground: (red: UInt8, green: UInt8, blue: UInt8), background: Crayon.ANSIColor? = nil) -> String {
-    Crayon(message: message, style: style, foreground: .trueColor(red: foreground.red, green: foreground.green, blue: foreground.blue), background: background.map { .color($0) }).description
+    Crayon(message: message, style: style, foreground: .trueColor(red: foreground.red, green: foreground.green, blue: foreground.blue), background: background.map { .color($0) }).string
 }
 
 private func makeCrayonString(_ message: String, style: Crayon.Style? = nil, foreground: Crayon.ANSIColor? = nil, background: (red: UInt8, green: UInt8, blue: UInt8)) -> String {
-    Crayon(message: message, style: style, foreground: foreground.map { .color($0) }, background: .trueColor(red: background.red, green: background.green, blue: background.blue)).description
+    Crayon(message: message, style: style, foreground: foreground.map { .color($0) }, background: .trueColor(red: background.red, green: background.green, blue: background.blue)).string
 }
 
 private func makeCrayonString(_ message: String, style: Crayon.Style? = nil, foreground: UInt8, background: (red: UInt8, green: UInt8, blue: UInt8)) -> String {
-    Crayon(message: message, style: style, foreground: .color256(foreground), background: .trueColor(red: background.red, green: background.green, blue: background.blue)).description
+    Crayon(message: message, style: style, foreground: .color256(foreground), background: .trueColor(red: background.red, green: background.green, blue: background.blue)).string
 }
 
 private func makeCrayonString(_ message: String, style: Crayon.Style? = nil, foreground: (red: UInt8, green: UInt8, blue: UInt8), background: UInt8) -> String {
-    Crayon(message: message, style: style, foreground: .trueColor(red: foreground.red, green: foreground.green, blue: foreground.blue), background: .color256(background)).description
+    Crayon(message: message, style: style, foreground: .trueColor(red: foreground.red, green: foreground.green, blue: foreground.blue), background: .color256(background)).string
 }
 
 private func makeCrayonString(_ message: String, style: Crayon.Style? = nil, foreground: (red: UInt8, green: UInt8, blue: UInt8), background: (red: UInt8, green: UInt8, blue: UInt8)) -> String {
-    Crayon(message: message, style: style, foreground: .trueColor(red: foreground.red, green: foreground.green, blue: foreground.blue), background: .trueColor(red: foreground.red, green: foreground.green, blue: foreground.blue)).description
+    Crayon(message: message, style: style, foreground: .trueColor(red: foreground.red, green: foreground.green, blue: foreground.blue), background: .trueColor(red: foreground.red, green: foreground.green, blue: foreground.blue)).string
 }
 
 private func makeCrayonString(_ message: String, style: Crayon.Style? = nil, foreground: String, background: Crayon.ANSIColor? = nil) -> String {
-    Crayon(message: message, style: style, foreground: Utils.makeColor(from: foreground), background: background.map { .color($0) }).description
+    Crayon(message: message, style: style, foreground: Utils.makeColor(from: foreground), background: background.map { .color($0) }).string
 }
 
 private func makeCrayonString(_ message: String, style: Crayon.Style? = nil, foreground: String, background: UInt8) -> String {
-    Crayon(message: message, style: style, foreground: Utils.makeColor(from: foreground), background: .color256(background)).description
+    Crayon(message: message, style: style, foreground: Utils.makeColor(from: foreground), background: .color256(background)).string
 }
 
 private func makeCrayonString(_ message: String, style: Crayon.Style? = nil, foreground: String, background: (red: UInt8, green: UInt8, blue: UInt8)) -> String {
-    Crayon(message: message, style: style, foreground: Utils.makeColor(from: foreground), background: .trueColor(red: background.red, green: background.green, blue: background.blue)).description
+    Crayon(message: message, style: style, foreground: Utils.makeColor(from: foreground), background: .trueColor(red: background.red, green: background.green, blue: background.blue)).string
 }
 
 private func makeCrayonString(_ message: String, style: Crayon.Style? = nil, foreground: Crayon.ANSIColor? = nil, background: String) -> String {
-    Crayon(message: message, style: style, foreground: foreground.map { .color($0) }, background: Utils.makeColor(from: background)).description
+    Crayon(message: message, style: style, foreground: foreground.map { .color($0) }, background: Utils.makeColor(from: background)).string
 }
 
 private func makeCrayonString(_ message: String, style: Crayon.Style? = nil, foreground: UInt8, background: String) -> String {
-    Crayon(message: message, style: style, foreground: .color256(foreground), background: Utils.makeColor(from: background)).description
+    Crayon(message: message, style: style, foreground: .color256(foreground), background: Utils.makeColor(from: background)).string
 }
 
 private func makeCrayonString(_ message: String, style: Crayon.Style? = nil, foreground: (red: UInt8, green: UInt8, blue: UInt8), background: String) -> String {
-    Crayon(message: message, style: style, foreground: .trueColor(red: foreground.red, green: foreground.green, blue: foreground.blue), background: Utils.makeColor(from: background)).description
+    Crayon(message: message, style: style, foreground: .trueColor(red: foreground.red, green: foreground.green, blue: foreground.blue), background: Utils.makeColor(from: background)).string
 }
 
 private func makeCrayonString(_ message: String, style: Crayon.Style? = nil, foreground: String, background: String) -> String {
-    Crayon(message: message, style: style, foreground: Utils.makeColor(from: foreground), background: Utils.makeColor(from: background)).description
+    Crayon(message: message, style: style, foreground: Utils.makeColor(from: foreground), background: Utils.makeColor(from: background)).string
 }

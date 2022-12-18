@@ -40,7 +40,7 @@ public struct Crayon {
             return message
         }
 
-        return "\u{001B}[\(parameters.joined(separator: ";"))m\(message)\u{001B}[m"
+        return "\u{001B}[\(parameters.joined(separator: ";"))m\(message.replacingOccurrences(of: "\u{001B}[m", with: ""))\u{001B}[m"
     }
 
     public init(

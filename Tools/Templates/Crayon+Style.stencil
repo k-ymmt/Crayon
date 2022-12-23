@@ -1,0 +1,26 @@
+
+import Foundation
+
+public extension Crayon {
+    enum Style: Int {
+{% filter removeMultipleNewlines %}{% for style in styles %}
+        case {% filter escape %}{{ style }}{% endfilter %}
+{% endfor %}{% endfilter %}
+    }
+{% for style in styles %}
+    static func {% if style == "default" %}style{% filter upperFirstLetter %}{{ style }}{% endfilter %}{% else %}{{ style}}{% endif %}(_ message: String) -> Self {
+        Crayon(message: message, style: .{{ style }})
+    }
+{% endfor %}
+    static func style(_ message: String, style: Style) -> Self {
+        Crayon(message: message, style: style)
+    }
+{% for style in styles %}
+    func {% if style == "default" %}style{% filter upperFirstLetter %}{{ style }}{% endfilter %}{% else %}{{ style}}{% endif %}() -> Self {
+        update(style: .{{ style }})
+    }
+{% endfor %}
+    func style(_ style: Style) -> Self {
+        update(style: style)
+    }
+}

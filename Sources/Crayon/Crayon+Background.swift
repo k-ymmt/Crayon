@@ -1,9 +1,3 @@
-//
-//  Crayon+Background.swift
-//  
-//
-//  Created by Kazuki Yamamoto on 2022/11/30.
-//
 
 import Foundation
 

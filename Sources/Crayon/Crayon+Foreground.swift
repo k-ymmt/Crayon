@@ -1,14 +1,8 @@
-//
-//  Crayon+Foreground.swift
-//  
-//
-//  Created by Kazuki Yamamoto on 2022/11/28.
-//
 
 import Foundation
 
 public extension Crayon {
-    static func `default`(_ message: String) -> Self {
+    static func foregroundDefault(_ message: String) -> Self {
         Crayon(message: message, foreground: .color(.default))
     }
 
@@ -73,7 +67,7 @@ public extension Crayon {
     }
 
     static func brightWhite(_ message: String) -> Self {
-        Crayon(message: message, foreground: .color(.brightRed))
+        Crayon(message: message, foreground: .color(.brightWhite))
     }
 
     static func foreground(_ message: String, color: UInt8) -> Self {
@@ -94,7 +88,7 @@ public extension Crayon {
 }
 
 public extension Crayon {
-    func `default`() -> Self {
+    func foregroundDefault() -> Self {
         update(foreground: .color(.default))
     }
 

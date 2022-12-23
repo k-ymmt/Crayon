@@ -1,0 +1,44 @@
+
+import Foundation
+
+public extension Crayon {
+{% filter removeFirstNewline %}{% for color in colors %}
+    static func {% if color == "default" %}foreground{% filter upperFirstLetter %}{{ color }}{% endfilter %}{% else %}{{ color }}{% endif %}(_ message: String) -> Self {
+        Crayon(message: message, foreground: .color(.{{ color }}))
+    }
+{% endfor %}{% endfilter %}
+    static func foreground(_ message: String, color: UInt8) -> Self {
+        Crayon(message: message, foreground: .color256(color))
+    }
+
+    static func foreground(_ message: String, color: String) -> Self {
+        Crayon(message: message, foreground: Utils.makeColor(from: color))
+    }
+
+    static func foreground(_ message: String, red: UInt8, green: UInt8, blue: UInt8) -> Self {
+        Crayon(message: message, foreground: .trueColor(red: red, green: green, blue: blue))
+    }
+
+    static func foreground(_ message: String, hex: String) -> Self {
+        Crayon(message: message, foreground: Utils.makeColor(from: hex))
+    }
+}
+
+public extension Crayon {
+{% filter removeFirstNewline %}{% for color in colors %}
+    func {% if color == "default" %}foreground{% filter upperFirstLetter %}{{ color }}{% endfilter %}{% else %}{{ color }}{% endif %}() -> Self {
+        update(foreground: .color(.{{ color }}))
+    }
+{% endfor %}{% endfilter %}
+    func foreground(_ color: UInt8) -> Self {
+        update(foreground: .color256(color))
+    }
+
+    func foreground(red: UInt8, green: UInt8, blue: UInt8) -> Self {
+        update(foreground: .trueColor(red: red, green: green, blue: blue))
+    }
+
+    func foreground(_ hex: String) -> Self {
+        update(foreground: Utils.makeColor(from: hex))
+    }
+}

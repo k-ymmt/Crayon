@@ -1,9 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by Kazuki Yamamoto on 2022/11/30.
-//
 
 import Foundation
 
@@ -16,6 +10,10 @@ public extension Crayon {
         case underline
         case blink
         case rapidBlink
+    }
+
+    static func styleDefault(_ message: String) -> Self {
+        Crayon(message: message, style: .default)
     }
 
     static func bold(_ message: String) -> Self {
@@ -42,8 +40,12 @@ public extension Crayon {
         Crayon(message: message, style: .rapidBlink)
     }
 
-    static func style(_ message: String, style: Crayon.Style) -> Self {
+    static func style(_ message: String, style: Style) -> Self {
         Crayon(message: message, style: style)
+    }
+
+    func styleDefault() -> Self {
+        update(style: .default)
     }
 
     func bold() -> Self {
@@ -70,7 +72,7 @@ public extension Crayon {
         update(style: .rapidBlink)
     }
 
-    func style(_ style: Crayon.Style) -> Self {
+    func style(_ style: Style) -> Self {
         update(style: style)
     }
 }

@@ -72,6 +72,10 @@ public extension Crayon {
         Crayon(message: message, style: style)
     }
 
+    static func style(_ crayon: Crayon, style: Style) -> Self {
+        Crayon(message: crayon.string, style: style)
+    }
+
     func styleDefault() -> Self {
         update(style: .default)
     }

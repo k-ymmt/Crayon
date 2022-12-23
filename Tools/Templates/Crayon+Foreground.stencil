@@ -26,6 +26,23 @@ public extension Crayon {
     static func foreground(_ message: String, hex: String) -> Self {
         Crayon(message: message, foreground: Utils.makeColor(from: hex))
     }
+
+    static func foreground(_ crayon: Crayon, color: UInt8) -> Self {
+        Crayon(message: crayon.string, foreground: .color256(color))
+    }
+
+    static func foreground(_ crayon: Crayon, color: String) -> Self {
+        Crayon(message: crayon.string, foreground: Utils.makeColor(from: color))
+    }
+
+    static func foreground(_ crayon: Crayon, red: UInt8, green: UInt8, blue: UInt8) -> Self {
+        Crayon(message: crayon.string, foreground: .trueColor(red: red, green: green, blue: blue))
+    }
+
+    static func foreground(_ crayon: Crayon, hex: String) -> Self {
+        Crayon(message: crayon.string, foreground: Utils.makeColor(from: hex))
+    }
+
 }
 
 public extension Crayon {

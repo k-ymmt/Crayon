@@ -26,6 +26,23 @@ public extension Crayon {
     static func background(_ message: String, color: String) -> Self {
         Crayon(message: message, background: Utils.makeColor(from: color))
     }
+
+    static func background(_ crayon: Crayon, color: ANSIColor) -> Self {
+        Crayon(message: crayon.string, background: .color(color))
+    }
+
+    static func background(_ crayon: Crayon, color: UInt8) -> Self {
+        Crayon(message: crayon.string, background: .color256(color))
+    }
+
+    static func background(_ crayon: Crayon, red: UInt8, green: UInt8, blue: UInt8) -> Self {
+        Crayon(message: crayon.string, background: .trueColor(red: red, green: green, blue: blue))
+    }
+
+    static func background(_ crayon: Crayon, color: String) -> Self {
+        Crayon(message: crayon.string, background: Utils.makeColor(from: color))
+    }
+
 }
 
 public extension Crayon {

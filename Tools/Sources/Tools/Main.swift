@@ -34,6 +34,32 @@ public struct Main {
         "rapidBlink"
     ]
 
+    enum ColorType: String {
+        case ansi = "Crayon.ANSIColor"
+        case color256 = "UInt8"
+        case trueColor = "(red: UInt8, green: UInt8, blue: UInt8)"
+        case string = "String"
+    }
+
+    static let colorPairs: [(ColorType, ColorType)] = [
+        (.ansi, .ansi),
+        (.ansi, .color256),
+        (.ansi, .trueColor),
+        (.ansi, .string),
+        (.color256, .ansi),
+        (.color256, .color256),
+        (.color256, .trueColor),
+        (.color256, .string),
+        (.trueColor, .ansi),
+        (.trueColor, .color256),
+        (.trueColor, .trueColor),
+        (.trueColor, .string),
+        (.string, .ansi),
+        (.string, .color256),
+        (.string, .trueColor),
+        (.string, .string),
+    ]
+
     public static func main() throws {
         let currentDir = Path.current
         let templateDir = currentDir + "Templates"
@@ -47,9 +73,10 @@ public struct Main {
             fatalError("Output dir is not exists")
         }
 
-        let context = [
+        let context: [String: Any] = [
             "colors": colors,
-            "styles": styles
+            "styles": styles,
+            "colorPairs": colorPairs.map { (f, b) in (f.rawValue, b.rawValue) }
         ]
 
         func makeExtension() -> Extension {
@@ -95,6 +122,25 @@ public struct Main {
                 }
                 return String(string.dropFirst())
             }
+            ext.registerFilter("colorTypeToEnumValue") { value, args in
+                guard
+                    let string = value as? String,
+                    let type = ColorType(rawValue: string),
+                    let argument = args[0] as? String
+                else {
+                    return value
+                }
+                switch type {
+                case .ansi:
+                    return ".color(\(argument))"
+                case .color256:
+                    return ".color256(\(argument))"
+                case .trueColor:
+                    return ".trueColor(red: \(argument).red, green: \(argument).green, blue: \(argument).blue)"
+                case .string:
+                    return "Utils.makeColor(from: \(argument))"
+                }
+            }
             return ext
         }
 
@@ -113,6 +159,7 @@ public struct Main {
             "Crayon+Foreground",
             "Crayon+Background",
             "Crayon+Style",
+            "Crayon+Interpolation"
         ]
 
         for name in names {

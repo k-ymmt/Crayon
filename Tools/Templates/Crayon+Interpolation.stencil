@@ -1,0 +1,33 @@
+
+import Foundation
+
+public extension String.StringInterpolation {
+{% filter removeFirstNewline %}{% for foreground, background in colorPairs %}
+    mutating func appendInterpolation(_ message: String, style: Crayon.Style, foreground: {{ foreground }}, background: {{ background }}) {
+        appendLiteral(Crayon(message: message, style: style, foreground: {{ foreground|colorTypeToEnumValue:"foreground" }}, background: {{ background|colorTypeToEnumValue:"background" }}).string)
+    }
+
+    mutating func appendInterpolation(_ message: String, foreground: {{ foreground }}, background: {{ background }}) {
+        appendLiteral(Crayon(message: message, foreground: {{ foreground|colorTypeToEnumValue:"foreground" }}, background: {{ background|colorTypeToEnumValue:"background" }}).string)
+    }
+{% if foreground == background %}
+    mutating func appendInterpolation(_ message: String, style: Crayon.Style, foreground: {{ foreground }}) {
+        appendLiteral(Crayon(message: message, style: style, foreground: {{ foreground|colorTypeToEnumValue:"foreground" }}).string)
+    }
+
+    mutating func appendInterpolation(_ message: String, style: Crayon.Style, background: {{ background }}) {
+        appendLiteral(Crayon(message: message, style: style, foreground: {{ background|colorTypeToEnumValue:"background" }}).string)
+    }
+
+    mutating func appendInterpolation(_ message: String, foreground: {{ foreground }}) {
+        appendLiteral(Crayon(message: message, foreground: {{ foreground|colorTypeToEnumValue:"foreground" }}).string)
+    }
+
+    mutating func appendInterpolation(_ message: String, background: {{ background }}) {
+        appendLiteral(Crayon(message: message, foreground: {{ background|colorTypeToEnumValue:"background" }}).string)
+    }
+{% endif %}{% endfor %}{% endfilter %}
+    mutating func appendInterpolation(_ message: String, style: Crayon.Style) {
+        appendLiteral(Crayon(message: message, style: style).string)
+    }
+}

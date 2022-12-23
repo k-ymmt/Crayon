@@ -11,12 +11,11 @@ public extension Crayon {
     static func {% if style == "default" %}style{{ style|upperFirstLetter }}{% else %}{{ style}}{% endif %}(_ message: String) -> Self {
         Crayon(message: message, style: .{{ style }})
     }
-{% endfor %}
-{% filter removeMultipleNewlines %}{% for style in styles %}
+
     static func {% if style == "default" %}style{{ style|upperFirstLetter }}{% else %}{{ style}}{% endif %}(_ crayon: Crayon) -> Self {
         Crayon(message: crayon.string, style: .{{ style }})
     }
-{% endfor %}{% endfilter %}
+{% endfor %}
     static func style(_ message: String, style: Style) -> Self {
         Crayon(message: message, style: style)
     }

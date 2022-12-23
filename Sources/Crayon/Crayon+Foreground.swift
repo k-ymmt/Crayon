@@ -6,132 +6,132 @@ public extension Crayon {
         Crayon(message: message, foreground: .color(.default))
     }
 
-    static func black(_ message: String) -> Self {
-        Crayon(message: message, foreground: .color(.black))
-    }
-
-    static func red(_ message: String) -> Self {
-        Crayon(message: message, foreground: .color(.red))
-    }
-
-    static func green(_ message: String) -> Self {
-        Crayon(message: message, foreground: .color(.green))
-    }
-
-    static func yellow(_ message: String) -> Self {
-        Crayon(message: message, foreground: .color(.yellow))
-    }
-
-    static func blue(_ message: String) -> Self {
-        Crayon(message: message, foreground: .color(.blue))
-    }
-
-    static func magenta(_ message: String) -> Self {
-        Crayon(message: message, foreground: .color(.magenta))
-    }
-
-    static func cyan(_ message: String) -> Self {
-        Crayon(message: message, foreground: .color(.cyan))
-    }
-
-    static func white(_ message: String) -> Self {
-        Crayon(message: message, foreground: .color(.white))
-    }
-
-    static func brightBlack(_ message: String) -> Self {
-        Crayon(message: message, foreground: .color(.brightBlack))
-    }
-
-    static func brightRed(_ message: String) -> Self {
-        Crayon(message: message, foreground: .color(.brightRed))
-    }
-
-    static func brightGreen(_ message: String) -> Self {
-        Crayon(message: message, foreground: .color(.brightGreen))
-    }
-
-    static func brightYellow(_ message: String) -> Self {
-        Crayon(message: message, foreground: .color(.brightYellow))
-    }
-
-    static func brightBlue(_ message: String) -> Self {
-        Crayon(message: message, foreground: .color(.brightBlue))
-    }
-
-    static func brightMagenta(_ message: String) -> Self {
-        Crayon(message: message, foreground: .color(.brightMagenta))
-    }
-
-    static func brightCyan(_ message: String) -> Self {
-        Crayon(message: message, foreground: .color(.brightCyan))
-    }
-
-    static func brightWhite(_ message: String) -> Self {
-        Crayon(message: message, foreground: .color(.brightWhite))
-    }
-
     static func foregroundDefault(_ crayon: Crayon) -> Self {
         Crayon(message: crayon.string, foreground: .color(.default))
+    }
+
+    static func black(_ message: String) -> Self {
+        Crayon(message: message, foreground: .color(.black))
     }
 
     static func black(_ crayon: Crayon) -> Self {
         Crayon(message: crayon.string, foreground: .color(.black))
     }
 
+    static func red(_ message: String) -> Self {
+        Crayon(message: message, foreground: .color(.red))
+    }
+
     static func red(_ crayon: Crayon) -> Self {
         Crayon(message: crayon.string, foreground: .color(.red))
+    }
+
+    static func green(_ message: String) -> Self {
+        Crayon(message: message, foreground: .color(.green))
     }
 
     static func green(_ crayon: Crayon) -> Self {
         Crayon(message: crayon.string, foreground: .color(.green))
     }
 
+    static func yellow(_ message: String) -> Self {
+        Crayon(message: message, foreground: .color(.yellow))
+    }
+
     static func yellow(_ crayon: Crayon) -> Self {
         Crayon(message: crayon.string, foreground: .color(.yellow))
+    }
+
+    static func blue(_ message: String) -> Self {
+        Crayon(message: message, foreground: .color(.blue))
     }
 
     static func blue(_ crayon: Crayon) -> Self {
         Crayon(message: crayon.string, foreground: .color(.blue))
     }
 
+    static func magenta(_ message: String) -> Self {
+        Crayon(message: message, foreground: .color(.magenta))
+    }
+
     static func magenta(_ crayon: Crayon) -> Self {
         Crayon(message: crayon.string, foreground: .color(.magenta))
+    }
+
+    static func cyan(_ message: String) -> Self {
+        Crayon(message: message, foreground: .color(.cyan))
     }
 
     static func cyan(_ crayon: Crayon) -> Self {
         Crayon(message: crayon.string, foreground: .color(.cyan))
     }
 
+    static func white(_ message: String) -> Self {
+        Crayon(message: message, foreground: .color(.white))
+    }
+
     static func white(_ crayon: Crayon) -> Self {
         Crayon(message: crayon.string, foreground: .color(.white))
+    }
+
+    static func brightBlack(_ message: String) -> Self {
+        Crayon(message: message, foreground: .color(.brightBlack))
     }
 
     static func brightBlack(_ crayon: Crayon) -> Self {
         Crayon(message: crayon.string, foreground: .color(.brightBlack))
     }
 
+    static func brightRed(_ message: String) -> Self {
+        Crayon(message: message, foreground: .color(.brightRed))
+    }
+
     static func brightRed(_ crayon: Crayon) -> Self {
         Crayon(message: crayon.string, foreground: .color(.brightRed))
+    }
+
+    static func brightGreen(_ message: String) -> Self {
+        Crayon(message: message, foreground: .color(.brightGreen))
     }
 
     static func brightGreen(_ crayon: Crayon) -> Self {
         Crayon(message: crayon.string, foreground: .color(.brightGreen))
     }
 
+    static func brightYellow(_ message: String) -> Self {
+        Crayon(message: message, foreground: .color(.brightYellow))
+    }
+
     static func brightYellow(_ crayon: Crayon) -> Self {
         Crayon(message: crayon.string, foreground: .color(.brightYellow))
+    }
+
+    static func brightBlue(_ message: String) -> Self {
+        Crayon(message: message, foreground: .color(.brightBlue))
     }
 
     static func brightBlue(_ crayon: Crayon) -> Self {
         Crayon(message: crayon.string, foreground: .color(.brightBlue))
     }
 
+    static func brightMagenta(_ message: String) -> Self {
+        Crayon(message: message, foreground: .color(.brightMagenta))
+    }
+
     static func brightMagenta(_ crayon: Crayon) -> Self {
         Crayon(message: crayon.string, foreground: .color(.brightMagenta))
     }
 
+    static func brightCyan(_ message: String) -> Self {
+        Crayon(message: message, foreground: .color(.brightCyan))
+    }
+
     static func brightCyan(_ crayon: Crayon) -> Self {
         Crayon(message: crayon.string, foreground: .color(.brightCyan))
+    }
+
+    static func brightWhite(_ message: String) -> Self {
+        Crayon(message: message, foreground: .color(.brightWhite))
     }
 
     static func brightWhite(_ crayon: Crayon) -> Self {

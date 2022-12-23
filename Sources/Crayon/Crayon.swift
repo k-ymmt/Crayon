@@ -54,6 +54,10 @@ public struct Crayon {
         self.background = background
         self.message = message
     }
+
+    public init(_ crayon: Crayon) {
+        self.init(message: crayon.string)
+    }
 }
 
 public extension Crayon {

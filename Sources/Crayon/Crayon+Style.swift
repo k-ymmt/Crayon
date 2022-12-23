@@ -40,6 +40,27 @@ public extension Crayon {
         Crayon(message: message, style: .rapidBlink)
     }
 
+    static func styleDefault(_ crayon: Crayon) -> Self {
+        Crayon(message: crayon.string, style: .default)
+    }
+    static func bold(_ crayon: Crayon) -> Self {
+        Crayon(message: crayon.string, style: .bold)
+    }
+    static func thin(_ crayon: Crayon) -> Self {
+        Crayon(message: crayon.string, style: .thin)
+    }
+    static func italic(_ crayon: Crayon) -> Self {
+        Crayon(message: crayon.string, style: .italic)
+    }
+    static func underline(_ crayon: Crayon) -> Self {
+        Crayon(message: crayon.string, style: .underline)
+    }
+    static func blink(_ crayon: Crayon) -> Self {
+        Crayon(message: crayon.string, style: .blink)
+    }
+    static func rapidBlink(_ crayon: Crayon) -> Self {
+        Crayon(message: crayon.string, style: .rapidBlink)
+    }
     static func style(_ message: String, style: Style) -> Self {
         Crayon(message: message, style: style)
     }

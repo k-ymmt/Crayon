@@ -7,6 +7,11 @@ public extension Crayon {
         Crayon(message: message, background: .color(.{{ color }}))
     }
 {% endfor %}{% endfilter %}
+{% filter removeFirstNewline %}{% for color in colors %}
+    static func background{% filter upperFirstLetter %}{{ color }}{% endfilter %}(_ crayon: Crayon) -> Self {
+        Crayon(message: crayon.string, background: .color(.{{ color }}))
+    }
+{% endfor %}{% endfilter %}
     static func background(_ message: String, color: ANSIColor) -> Self {
         Crayon(message: message, background: .color(color))
     }

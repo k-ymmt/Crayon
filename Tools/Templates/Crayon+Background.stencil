@@ -3,12 +3,12 @@ import Foundation
 
 public extension Crayon {
 {% filter removeFirstNewline %}{% for color in colors %}
-    static func background{% filter upperFirstLetter %}{{ color }}{% endfilter %}(_ message: String) -> Self {
+    static func background{{ color|upperFirstLetter }}(_ message: String) -> Self {
         Crayon(message: message, background: .color(.{{ color }}))
     }
 {% endfor %}{% endfilter %}
 {% filter removeFirstNewline %}{% for color in colors %}
-    static func background{% filter upperFirstLetter %}{{ color }}{% endfilter %}(_ crayon: Crayon) -> Self {
+    static func background{{ color|upperFirstLetter }}(_ crayon: Crayon) -> Self {
         Crayon(message: crayon.string, background: .color(.{{ color }}))
     }
 {% endfor %}{% endfilter %}
@@ -31,7 +31,7 @@ public extension Crayon {
 
 public extension Crayon {
 {% filter removeFirstNewline %}{% for color in colors %}
-    func background{% filter upperFirstLetter %}{{ color }}{% endfilter %}() -> Self {
+    func background{{ color|upperFirstLetter }}() -> Self {
         update(background: .color(.{{ color }}))
     }
 {% endfor %}{% endfilter %}

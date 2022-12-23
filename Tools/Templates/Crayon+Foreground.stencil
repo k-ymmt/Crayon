@@ -3,12 +3,12 @@ import Foundation
 
 public extension Crayon {
 {% filter removeFirstNewline %}{% for color in colors %}
-    static func {% if color == "default" %}foreground{% filter upperFirstLetter %}{{ color }}{% endfilter %}{% else %}{{ color }}{% endif %}(_ message: String) -> Self {
+    static func {% if color == "default" %}foreground{{ color|upperFirstLetter }}{% else %}{{ color }}{% endif %}(_ message: String) -> Self {
         Crayon(message: message, foreground: .color(.{{ color }}))
     }
 {% endfor %}{% endfilter %}
 {% filter removeFirstNewline %}{% for color in colors %}
-    static func {% if color == "default" %}foreground{% filter upperFirstLetter %}{{ color }}{% endfilter %}{% else %}{{ color }}{% endif %}(_ crayon: Crayon) -> Self {
+    static func {% if color == "default" %}foreground{{ color|upperFirstLetter }}{% else %}{{ color }}{% endif %}(_ crayon: Crayon) -> Self {
         Crayon(message: crayon.string, foreground: .color(.{{ color }}))
     }
 {% endfor %}{% endfilter %}
@@ -31,7 +31,7 @@ public extension Crayon {
 
 public extension Crayon {
 {% filter removeFirstNewline %}{% for color in colors %}
-    func {% if color == "default" %}foreground{% filter upperFirstLetter %}{{ color }}{% endfilter %}{% else %}{{ color }}{% endif %}() -> Self {
+    func {% if color == "default" %}foreground{{ color|upperFirstLetter }}{% else %}{{ color }}{% endif %}() -> Self {
         update(foreground: .color(.{{ color }}))
     }
 {% endfor %}{% endfilter %}

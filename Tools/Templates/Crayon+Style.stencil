@@ -4,16 +4,16 @@ import Foundation
 public extension Crayon {
     enum Style: Int {
 {% filter removeMultipleNewlines %}{% for style in styles %}
-        case {% filter escape %}{{ style }}{% endfilter %}
+        case {{ style|escape }}
 {% endfor %}{% endfilter %}
     }
 {% for style in styles %}
-    static func {% if style == "default" %}style{% filter upperFirstLetter %}{{ style }}{% endfilter %}{% else %}{{ style}}{% endif %}(_ message: String) -> Self {
+    static func {% if style == "default" %}style{{ style|upperFirstLetter }}{% else %}{{ style}}{% endif %}(_ message: String) -> Self {
         Crayon(message: message, style: .{{ style }})
     }
 {% endfor %}
 {% filter removeMultipleNewlines %}{% for style in styles %}
-    static func {% if style == "default" %}style{% filter upperFirstLetter %}{{ style }}{% endfilter %}{% else %}{{ style}}{% endif %}(_ crayon: Crayon) -> Self {
+    static func {% if style == "default" %}style{{ style|upperFirstLetter }}{% else %}{{ style}}{% endif %}(_ crayon: Crayon) -> Self {
         Crayon(message: crayon.string, style: .{{ style }})
     }
 {% endfor %}{% endfilter %}
@@ -21,7 +21,7 @@ public extension Crayon {
         Crayon(message: message, style: style)
     }
 {% for style in styles %}
-    func {% if style == "default" %}style{% filter upperFirstLetter %}{{ style }}{% endfilter %}{% else %}{{ style}}{% endif %}() -> Self {
+    func {% if style == "default" %}style{{ style|upperFirstLetter }}{% else %}{{ style}}{% endif %}() -> Self {
         update(style: .{{ style }})
     }
 {% endfor %}

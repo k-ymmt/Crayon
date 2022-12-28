@@ -15,7 +15,7 @@ public extension String.StringInterpolation {
     }
 
     mutating func appendInterpolation(_ message: String, style: Crayon.Style, background: Crayon.ANSIColor) {
-        appendLiteral(Crayon(message: message, style: style, foreground: .color(background)).string)
+        appendLiteral(Crayon(message: message, style: style, background: .color(background)).string)
     }
 
     mutating func appendInterpolation(_ message: String, foreground: Crayon.ANSIColor) {
@@ -23,7 +23,7 @@ public extension String.StringInterpolation {
     }
 
     mutating func appendInterpolation(_ message: String, background: Crayon.ANSIColor) {
-        appendLiteral(Crayon(message: message, foreground: .color(background)).string)
+        appendLiteral(Crayon(message: message, background: .color(background)).string)
     }
 
     mutating func appendInterpolation(_ message: String, style: Crayon.Style, foreground: Crayon.ANSIColor, background: UInt8) {
@@ -71,7 +71,7 @@ public extension String.StringInterpolation {
     }
 
     mutating func appendInterpolation(_ message: String, style: Crayon.Style, background: UInt8) {
-        appendLiteral(Crayon(message: message, style: style, foreground: .color256(background)).string)
+        appendLiteral(Crayon(message: message, style: style, background: .color256(background)).string)
     }
 
     mutating func appendInterpolation(_ message: String, foreground: UInt8) {
@@ -79,7 +79,7 @@ public extension String.StringInterpolation {
     }
 
     mutating func appendInterpolation(_ message: String, background: UInt8) {
-        appendLiteral(Crayon(message: message, foreground: .color256(background)).string)
+        appendLiteral(Crayon(message: message, background: .color256(background)).string)
     }
 
     mutating func appendInterpolation(_ message: String, style: Crayon.Style, foreground: UInt8, background: (red: UInt8, green: UInt8, blue: UInt8)) {
@@ -127,7 +127,7 @@ public extension String.StringInterpolation {
     }
 
     mutating func appendInterpolation(_ message: String, style: Crayon.Style, background: (red: UInt8, green: UInt8, blue: UInt8)) {
-        appendLiteral(Crayon(message: message, style: style, foreground: .trueColor(red: background.red, green: background.green, blue: background.blue)).string)
+        appendLiteral(Crayon(message: message, style: style, background: .trueColor(red: background.red, green: background.green, blue: background.blue)).string)
     }
 
     mutating func appendInterpolation(_ message: String, foreground: (red: UInt8, green: UInt8, blue: UInt8)) {
@@ -135,7 +135,7 @@ public extension String.StringInterpolation {
     }
 
     mutating func appendInterpolation(_ message: String, background: (red: UInt8, green: UInt8, blue: UInt8)) {
-        appendLiteral(Crayon(message: message, foreground: .trueColor(red: background.red, green: background.green, blue: background.blue)).string)
+        appendLiteral(Crayon(message: message, background: .trueColor(red: background.red, green: background.green, blue: background.blue)).string)
     }
 
     mutating func appendInterpolation(_ message: String, style: Crayon.Style, foreground: (red: UInt8, green: UInt8, blue: UInt8), background: String) {
@@ -183,7 +183,7 @@ public extension String.StringInterpolation {
     }
 
     mutating func appendInterpolation(_ message: String, style: Crayon.Style, background: String) {
-        appendLiteral(Crayon(message: message, style: style, foreground: Utils.makeColor(from: background)).string)
+        appendLiteral(Crayon(message: message, style: style, background: Utils.makeColor(from: background)).string)
     }
 
     mutating func appendInterpolation(_ message: String, foreground: String) {
@@ -191,7 +191,7 @@ public extension String.StringInterpolation {
     }
 
     mutating func appendInterpolation(_ message: String, background: String) {
-        appendLiteral(Crayon(message: message, foreground: Utils.makeColor(from: background)).string)
+        appendLiteral(Crayon(message: message, background: Utils.makeColor(from: background)).string)
     }
 
     mutating func appendInterpolation(_ message: String, style: Crayon.Style) {

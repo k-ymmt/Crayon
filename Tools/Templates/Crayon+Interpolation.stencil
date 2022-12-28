@@ -16,7 +16,7 @@ public extension String.StringInterpolation {
     }
 
     mutating func appendInterpolation(_ message: String, style: Crayon.Style, background: {{ background }}) {
-        appendLiteral(Crayon(message: message, style: style, foreground: {{ background|colorTypeToEnumValue:"background" }}).string)
+        appendLiteral(Crayon(message: message, style: style, background: {{ background|colorTypeToEnumValue:"background" }}).string)
     }
 
     mutating func appendInterpolation(_ message: String, foreground: {{ foreground }}) {
@@ -24,7 +24,7 @@ public extension String.StringInterpolation {
     }
 
     mutating func appendInterpolation(_ message: String, background: {{ background }}) {
-        appendLiteral(Crayon(message: message, foreground: {{ background|colorTypeToEnumValue:"background" }}).string)
+        appendLiteral(Crayon(message: message, background: {{ background|colorTypeToEnumValue:"background" }}).string)
     }
 {% endif %}{% endfor %}{% endfilter %}
     mutating func appendInterpolation(_ message: String, style: Crayon.Style) {

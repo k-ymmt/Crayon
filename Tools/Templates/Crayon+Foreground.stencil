@@ -11,12 +11,12 @@ public extension Crayon {
         Crayon(message: crayon.string, foreground: .color(.{{ color }}))
     }
 {% endfor %}{% endfilter %}
-    static func foreground(_ message: String, color: UInt8) -> Self {
-        Crayon(message: message, foreground: .color256(color))
+    static func foreground(_ message: String, color: ANSIColor) -> Self {
+        Crayon(message: message, foreground: .color(color))
     }
 
-    static func foreground(_ message: String, color: String) -> Self {
-        Crayon(message: message, foreground: Utils.makeColor(from: color))
+    static func foreground(_ message: String, color: UInt8) -> Self {
+        Crayon(message: message, foreground: .color256(color))
     }
 
     static func foreground(_ message: String, red: UInt8, green: UInt8, blue: UInt8) -> Self {
@@ -27,12 +27,12 @@ public extension Crayon {
         Crayon(message: message, foreground: Utils.makeColor(from: hex))
     }
 
-    static func foreground(_ crayon: Crayon, color: UInt8) -> Self {
-        Crayon(message: crayon.string, foreground: .color256(color))
+    static func foreground(_ crayon: Crayon, color: ANSIColor) -> Self {
+        Crayon(message: crayon.string, foreground: .color(color))
     }
 
-    static func foreground(_ crayon: Crayon, color: String) -> Self {
-        Crayon(message: crayon.string, foreground: Utils.makeColor(from: color))
+    static func foreground(_ crayon: Crayon, color: UInt8) -> Self {
+        Crayon(message: crayon.string, foreground: .color256(color))
     }
 
     static func foreground(_ crayon: Crayon, red: UInt8, green: UInt8, blue: UInt8) -> Self {
